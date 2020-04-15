@@ -63,10 +63,10 @@ function generate_static_html {
 
 		for html_file_name in `find build/output/${dir_name} -name *.html -type f`
 		do
-			sed -i 's/.md"/.html"/g' ${html_file_name}
-			sed -i 's/.md#/.html#/g' ${html_file_name}
-			sed -i 's/README.html"/index.html"/g' ${html_file_name}
-			sed -i 's/README.html#/index.html#/g' ${html_file_name}
+			sed -i '.bak' 's/.md"/.html"/g' ${html_file_name}
+			sed -i '.bak' 's/.md#/.html#/g' ${html_file_name}
+			sed -i '.bak' 's/README.html"/index.html"/g' ${html_file_name}
+			sed -i '.bak' 's/README.html#/index.html#/g' ${html_file_name}
 		done
 
 		#
@@ -82,7 +82,7 @@ function generate_static_html {
 		# Update search references for README.html to index.html.
 		#
 
-		sed -i 's/README"/index"/g' build/output/${dir_name}/searchindex.js
+		sed -i '.bak' 's/README"/index"/g' build/output/${dir_name}/searchindex.js
 
 		#
 		# Make ZIP files.
